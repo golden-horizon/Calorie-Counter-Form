@@ -4,23 +4,26 @@
   --fcc-blue: #1b1b32;
   --light-yellow: #fecc4c;
   --dark-yellow: #feac32;
-  --light-pink: #ffadad;
+  --light-pink: #ff6b81;
   --dark-red: #850000;
-  --light-green: #acd157;
+  --light-green: #7effa1;
   --light-grey: #f5f6f7;
+  --glass-bg: rgba(255, 255, 255, 0.1);
+  --shadow-color: rgba(0,0,0,0.5);
 }
 
-/* Reset and base styles */
+/* Reset */
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
+/* Body background animation */
 body {
   font-family: "Lato", Helvetica, Arial, sans-serif;
   font-size: 18px;
-  background: linear-gradient(135deg, #1b1b32, #0a0a23, #1b1b32);
+  background: linear-gradient(135deg, #1b1b32, #0a0a23, #1b1b32, #764ba2);
   background-size: 400% 400%;
   animation: gradientMove 15s ease infinite;
   color: var(--light-grey);
@@ -28,40 +31,46 @@ body {
   padding: 20px;
 }
 
-/* Background gradient animation */
+/* Gradient background animation */
 @keyframes gradientMove {
   0% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
 }
 
-/* Main heading */
+/* Main heading with glow */
 h1 {
   text-align: center;
   margin-bottom: 30px;
   color: var(--light-yellow);
-  text-shadow: 1px 1px 5px var(--dark-blue);
+  text-shadow: 0 0 8px var(--light-yellow), 0 0 15px var(--dark-yellow);
 }
 
-/* Container styling */
+/* Form container - glassmorphism */
 .container {
-  background: rgba(255, 255, 255, 0.05); /* Glass effect */
-  padding: 25px;
-  border-radius: 12px;
+  background: var(--glass-bg);
+  padding: 30px;
+  border-radius: 16px;
   max-width: 700px;
   margin: 0 auto;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 10px 30px var(--shadow-color);
   backdrop-filter: blur(10px);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.container:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px var(--shadow-color);
 }
 
-/* Form labels and legends */
+/* Labels and legends */
 label, legend {
   font-weight: bold;
   display: block;
   margin-top: 15px;
+  color: #fff;
 }
 
-/* Container for dynamically added inputs */
+/* Input container flex */
 .input-container {
   display: flex;
   flex-direction: column;
@@ -69,64 +78,76 @@ label, legend {
   margin-bottom: 15px;
 }
 
-/* Input and select fields */
+/* Inputs styling */
 input[type="text"], input[type="number"], select {
-  padding: 8px;
-  border-radius: 6px;
+  padding: 10px;
+  border-radius: 8px;
   border: 1px solid var(--light-yellow);
   outline: none;
   transition: 0.3s;
+  background: rgba(255,255,255,0.05);
+  color: #fff;
 }
 
-/* Input focus effect */
+/* Input focus gradient glow */
 input[type="text"]:focus, input[type="number"]:focus, select:focus {
-  border-color: var(--dark-yellow);
-  box-shadow: 0 0 8px rgba(254, 204, 76, 0.5);
+  border-color: var(--light-yellow);
+  box-shadow: 0 0 12px var(--light-yellow);
+  background: rgba(255,255,255,0.15);
 }
 
-/* Button styling */
+/* Buttons with neon glow and hover effect */
 button {
   cursor: pointer;
-  padding: 8px 15px;
+  padding: 10px 20px;
   margin-top: 10px;
-  border-radius: 6px;
+  border-radius: 10px;
   border: 2px solid var(--dark-yellow);
-  background: var(--light-yellow);
+  background: linear-gradient(45deg, var(--light-yellow), var(--dark-yellow));
+  color: var(--dark-blue);
   font-weight: bold;
-  transition: 0.3s;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: 0.3s ease;
+  box-shadow: 0 0 8px var(--light-yellow);
 }
-
-/* Hover effect for buttons */
 button:hover {
-  background: var(--dark-yellow);
-  color: var(--light-grey);
+  background: linear-gradient(45deg, var(--dark-yellow), var(--light-yellow));
+  color: #fff;
   transform: scale(1.05);
+  box-shadow: 0 0 15px var(--light-yellow), 0 0 25px var(--dark-yellow);
 }
 
-/* Output container */
+/* Output container with glass look */
 .output {
   border: 2px solid var(--light-grey);
-  border-radius: 8px;
-  padding: 15px;
+  border-radius: 10px;
+  padding: 20px;
   text-align: center;
-  margin-top: 15px;
-  background: rgba(255, 255, 255, 0.1);
+  margin-top: 20px;
+  background: rgba(255,255,255,0.1);
+  box-shadow: 0 5px 20px var(--shadow-color);
+  transition: transform 0.3s ease;
+}
+.output.show {
+  transform: scale(1.02);
 }
 
 /* Output numbers styling */
 .output span {
   font-weight: bold;
-  font-size: 1.2em;
+  font-size: 1.3em;
+  text-shadow: 0 0 6px #fff;
 }
 
-/* Surplus calories color */
+/* Surplus/deficit colors */
 .surplus {
   color: var(--light-pink);
+  text-shadow: 0 0 10px var(--light-pink);
 }
-
-/* Deficit calories color */
 .deficit {
   color: var(--light-green);
+  text-shadow: 0 0 10px var(--light-green);
 }
 
 /* Hide element */
