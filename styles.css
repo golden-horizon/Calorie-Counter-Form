@@ -1,3 +1,4 @@
+/* Root color variables */
 :root {
   --dark-blue: #0a0a23;
   --fcc-blue: #1b1b32;
@@ -9,6 +10,7 @@
   --light-grey: #f5f6f7;
 }
 
+/* Reset and base styles */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -26,12 +28,14 @@ body {
   padding: 20px;
 }
 
+/* Background gradient animation */
 @keyframes gradientMove {
   0% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
 }
 
+/* Main heading */
 h1 {
   text-align: center;
   margin-bottom: 30px;
@@ -39,8 +43,9 @@ h1 {
   text-shadow: 1px 1px 5px var(--dark-blue);
 }
 
+/* Container styling */
 .container {
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(255, 255, 255, 0.05); /* Glass effect */
   padding: 25px;
   border-radius: 12px;
   max-width: 700px;
@@ -49,12 +54,14 @@ h1 {
   backdrop-filter: blur(10px);
 }
 
+/* Form labels and legends */
 label, legend {
   font-weight: bold;
   display: block;
   margin-top: 15px;
 }
 
+/* Container for dynamically added inputs */
 .input-container {
   display: flex;
   flex-direction: column;
@@ -62,6 +69,7 @@ label, legend {
   margin-bottom: 15px;
 }
 
+/* Input and select fields */
 input[type="text"], input[type="number"], select {
   padding: 8px;
   border-radius: 6px;
@@ -70,11 +78,13 @@ input[type="text"], input[type="number"], select {
   transition: 0.3s;
 }
 
+/* Input focus effect */
 input[type="text"]:focus, input[type="number"]:focus, select:focus {
   border-color: var(--dark-yellow);
   box-shadow: 0 0 8px rgba(254, 204, 76, 0.5);
 }
 
+/* Button styling */
 button {
   cursor: pointer;
   padding: 8px 15px;
@@ -86,12 +96,14 @@ button {
   transition: 0.3s;
 }
 
+/* Hover effect for buttons */
 button:hover {
   background: var(--dark-yellow);
   color: var(--light-grey);
   transform: scale(1.05);
 }
 
+/* Output container */
 .output {
   border: 2px solid var(--light-grey);
   border-radius: 8px;
@@ -101,19 +113,23 @@ button:hover {
   background: rgba(255, 255, 255, 0.1);
 }
 
+/* Output numbers styling */
 .output span {
   font-weight: bold;
   font-size: 1.2em;
 }
 
+/* Surplus calories color */
 .surplus {
   color: var(--light-pink);
 }
 
+/* Deficit calories color */
 .deficit {
   color: var(--light-green);
 }
 
+/* Hide element */
 .hide {
   display: none;
 }
