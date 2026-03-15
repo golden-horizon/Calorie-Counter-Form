@@ -1,0 +1,119 @@
+:root {
+  --dark-blue: #0a0a23;
+  --fcc-blue: #1b1b32;
+  --light-yellow: #fecc4c;
+  --dark-yellow: #feac32;
+  --light-pink: #ffadad;
+  --dark-red: #850000;
+  --light-green: #acd157;
+  --light-grey: #f5f6f7;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Lato", Helvetica, Arial, sans-serif;
+  font-size: 18px;
+  background: linear-gradient(135deg, #1b1b32, #0a0a23, #1b1b32);
+  background-size: 400% 400%;
+  animation: gradientMove 15s ease infinite;
+  color: var(--light-grey);
+  min-height: 100vh;
+  padding: 20px;
+}
+
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 30px;
+  color: var(--light-yellow);
+  text-shadow: 1px 1px 5px var(--dark-blue);
+}
+
+.container {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 25px;
+  border-radius: 12px;
+  max-width: 700px;
+  margin: 0 auto;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(10px);
+}
+
+label, legend {
+  font-weight: bold;
+  display: block;
+  margin-top: 15px;
+}
+
+.input-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+input[type="text"], input[type="number"], select {
+  padding: 8px;
+  border-radius: 6px;
+  border: 1px solid var(--light-yellow);
+  outline: none;
+  transition: 0.3s;
+}
+
+input[type="text"]:focus, input[type="number"]:focus, select:focus {
+  border-color: var(--dark-yellow);
+  box-shadow: 0 0 8px rgba(254, 204, 76, 0.5);
+}
+
+button {
+  cursor: pointer;
+  padding: 8px 15px;
+  margin-top: 10px;
+  border-radius: 6px;
+  border: 2px solid var(--dark-yellow);
+  background: var(--light-yellow);
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+button:hover {
+  background: var(--dark-yellow);
+  color: var(--light-grey);
+  transform: scale(1.05);
+}
+
+.output {
+  border: 2px solid var(--light-grey);
+  border-radius: 8px;
+  padding: 15px;
+  text-align: center;
+  margin-top: 15px;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.output span {
+  font-weight: bold;
+  font-size: 1.2em;
+}
+
+.surplus {
+  color: var(--light-pink);
+}
+
+.deficit {
+  color: var(--light-green);
+}
+
+.hide {
+  display: none;
+}
